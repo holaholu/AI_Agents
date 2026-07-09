@@ -5,7 +5,8 @@ description = "deep_research_flow using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
-    "crewai[tools]>=1.15.1,<2.0.0"
+    "crewai[tools]>=1.15.1,<2.0.0",
+    "exa-py>=2.16.0",
 ]
 
 [project.scripts]
