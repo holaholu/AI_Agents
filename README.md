@@ -1,77 +1,80 @@
-# AI Agents with CrewAI — Practical Multi-Agent Systems
+# AI Agents Portfolio — Multi-Framework Agent Engineering
 
-A hands-on collection of autonomous agent workflows built with [CrewAI](https://crewai.com). This repository documents my progression from single-crew notebooks to multi-agent flows, production scaffolding, and real-world integrations. It is organized as a learning portfolio and reference implementation for anyone exploring agent orchestration, retrieval-augmented research, and business automation.
+A hands-on collection of autonomous agent workflows built across multiple frameworks and platforms. This repository documents my progression from single-crew notebooks to multi-agent flows, code agents, knowledge graphs, evaluation pipelines, and real-world integrations. It is organized as a learning portfolio and reference implementation for anyone exploring agent orchestration, retrieval-augmented research, business automation, and agent governance.
 
 ## 🧠 Core Competencies
 
 ### 🤖 Multi-Agent Orchestration
-- **Crew Definition**: Build agent teams with distinct roles, goals, and backstories using YAML-driven configuration.
-- **Task Delegation**: Design sequential and hierarchical task pipelines where agents share context and refine each other's outputs.
-- **Crew Memory & Knowledge**: Leverage short-term memory, entity memory, and knowledge sources to maintain context across runs.
 
-### 🌊 Flow-Based Workflows
-- **Event-Driven Flows**: Compose agent crews into larger flows with `@start`, `@listen`, `@router`, and `and_`/`or_` trigger patterns.
-- **Conditional Routing**: Route flow execution based on intermediate outputs (e.g., lead scoring thresholds) using router methods.
-- **Flow Visualization**: Generate interactive flow diagrams (HTML) to document and debug agent dependencies.
+- **CrewAI**: Build agent teams with distinct roles, goals, and backstories using YAML-driven configuration and event-driven flows.
+- **LangGraph**: Compose stateful agent graphs with persistence, streaming, and human-in-the-loop patterns.
+- **AutoGen**: Microsoft AutoGen multi-agent conversations, planning, coding, and tool-use patterns.
+- **NVIDIA NeMo Agent Toolkit**: Build tool-wielding agents, multi-agent math workflows, and deploy with the NeMo UI.
 
-### 🔍 Research & RAG Applications
-- **Deep Research Crew**: Automated multi-step research with source scraping, synthesis, and structured report generation.
-- **Web Search & Scraping**: Integrate SerperDev, ScrapeWebsite, and WebsiteSearch tools for real-time data retrieval.
-- **Guardrails & Validation**: Apply output guardrails and structured Pydantic outputs to ensure response quality.
+### 🔧 Code Agents & Tool Use
 
-### 📊 Data-Driven Automation
-- **Agentic Sales Pipeline**: Lead qualification, scoring, filtering, and routing using reusable YAML agents and tasks.
-- **Support Data Insight Analysis**: Classify support tickets, generate actionable suggestions, and produce charts and reports.
-- **Automated Project Planning**: Crew-based planning, estimation, and resource allocation workflows.
+- **Smolagents (Code_Agents)**: Code-acting agents with secure local execution, sandboxed E2B runners, monitoring with Phoenix, and deep research.
+- **Coding Agents**: Data analyst, full-stack, and web-builder coding agents.
+- **Agentic AI**: Reflection-based SQL agents, email assistants, customer service pipelines, and market research teams.
 
-### 🚀 Production & Deployment
-- **CLI Scaffolding**: Use `crewai create crew` and `crewai create flow` to generate production-ready project structures.
-- **Environment Management**: Separate API keys, dependencies, and runtime configs with `.env` and virtual environments.
-- **Extensible Tooling**: Add custom Python tools and integrate external APIs (Trello, Salesforce, etc.) into agent workflows.
+### � Knowledge Graphs & Memory
+
+- **Knowledge Graphs for AI Agents**: Graph construction, entity extraction, and business process integration.
+- **Agentic KnowledgeGraph**: Google ADK with Neo4j-backed knowledge graphs, schema proposals, and user intent modeling.
+- **Semantic Caching**: Cache agent responses by semantic similarity to improve latency and cost.
+
+### 🌐 Web, Browser & Document Agents
+
+- **Browser Agents**: Autonomous web navigation, Agent-Q style browsing, and web-agent notebooks.
+- **Document AI**: OCR (Tesseract, Paddle), layout understanding, and RAG over documents with Landing AI.
+
+### 📊 Data, Evaluation & Governance
+
+- **Building & Evaluating Data Agents**: Data-aware agent construction, performance observation, and multi-agent data workflows.
+- **Evaluate Agents**: Structured evaluation, tracing, trajectory evaluation, and agent benchmarking.
+- **Databricks Agent Governance**: Governance, deployment, and observability for Databricks-hosted agents.
+- **Database Agent with LangChain**: SQL/CSV/Azure OpenAI function-calling agents.
+
+### 🎙 Voice & Media Agents
+
+- **Voice Agents**: Voice agent components and latency optimization with Google ADK.
 
 ## 🛠 Technical Stack
 
-- **Core Framework**: CrewAI, crewAI-tools
-- **Language Models**: OpenAI GPT-4o / GPT-4o-mini, Groq (Llama 3.3 70B)
-- **Configuration**: YAML (agents, tasks), JSONC (CLI-based crews)
-- **Data & Visualization**: Pandas, Matplotlib, Seaborn
-- **Search & Retrieval**: SerperDev, ScrapeWebsite, WebsiteSearch, ChromaDB
-- **Environment**: Python 3.13, JupyterLab, `uv`/pip
-- **Deployment**: CrewAI CLI, GitHub
+- **Agent Frameworks**: CrewAI, LangGraph, AutoGen, Smolagents, Google ADK, NVIDIA NeMo Agent Toolkit
+- **Language Models**: OpenAI GPT-4o / GPT-4o-mini, Qwen/Qwen3.5-9B, Groq, Anthropic Claude
+- **Orchestration**: YAML/JSONC configs, state graphs, reflection loops, flows
+- **Data & Visualization**: Pandas, NumPy, Matplotlib, Plotly, GeoPandas, Shapely
+- **Search & Retrieval**: Tavily, SerperDev, DuckDuckGo, requests, markdownify, ChromaDB
+- **Knowledge & Memory**: Neo4j, RDF/TTL, semantic caching, SQLite
+- **Observability**: Phoenix (Arize), OpenInference, OpenTelemetry
+- **Security**: Local Python executor, E2B sandbox, `.env` management
+- **Environment**: Python 3.11–3.13, JupyterLab, `uv`/pip
 
 ## 📁 Repository Structure
 
 ```
 agents/
-├── CrewAI_01/                          # First iteration: core crew patterns
-│   ├── config/                         # Basic agents.yaml and tasks.yaml
-│   ├── Automatic_Deep_Research/        # End-to-end research crew project
-│   ├── deep_research_flow/             # Full flow-based research project
-│   ├── deep_research.ipynb             # Introductory research notebook
-│   ├── deep_research3_tools.ipynb      # Research with custom tools
-│   ├── deep_research_improved.ipynb    # Iterative research improvements
-│   ├── content_creation.ipynb          # Content generation crew
-│   ├── code_review.ipynb               # Agentic code review experiments
-│   ├── unittests.py                    # Unit tests for agent outputs
-│   └── utils.py                        # Shared helper utilities
-│
-├── CrewAI_02/                          # Second iteration: advanced & production
-│   ├── config/                         # Basic agents/tasks
-│   ├── config2/                        # Variant configurations
-│   ├── config3/                        # Lead qualification & email engagement
-│   ├── config4/                        # Support ticket insight agents
-│   ├── config5/                        # Content creation at scale agents
-│   ├── Agentic_Sales_Pipeline.ipynb    # Flow-driven sales pipeline
-│   ├── Automated_Project.ipynb         # Planning & estimation crew
-│   ├── Content_Creation.ipynb          # Multi-LLM content generation
-│   ├── External_integrations.ipynb     # Third-party API integrations
-│   ├── Production.ipynb                # Production scaffolding with CLI
-│   ├── Support_Data_Insight_Analysis.ipynb # Support analytics & reporting
-│   ├── crewai_flow*.html               # Visual flow diagrams
-│   ├── support_tickets_data.csv        # Sample support dataset
-│   ├── sample_agent_code.py            # Reference charting code
-│   └── helper.py                       # Environment loader
-│
+├── Agentic_AI/                         # Reflection-based SQL, email, customer service, market research
+├── Agentic_KnowledgeGraph/             # Google ADK + Neo4j knowledge graphs
+├── AutoGen/                            # Microsoft AutoGen notebooks and workflows
+├── Browser_Agents/                     # Autonomous web agents and Agent-Q clone
+├── Building&Evaluating_DataAgents/     # Data agent construction and evaluation
+├── Code_Agents/                        # Smolagents: intro, secure execution, monitoring, deep research
+├── Coding_Agents/                      # Coding agents: data analyst, full-stack, web builder
+├── CrewAI/                             # CrewAI courses and projects
+│   ├── CrewAI_01/                      # Core crew patterns and deep research
+│   └── CrewAI_02/                      # Advanced flows and production scaffolding
+├── Database_Agent_Langchain/           # LangChain SQL/CSV/Azure OpenAI agents
+├── databricks-agent-governance/        # Databricks agent governance and deployment
+├── devin/                              # Devin-style experiments (snake-game)
+├── Document_AI/                        # OCR, layout understanding, and document RAG
+├── Evaluate_Agents/                    # Agent evaluation, tracing, trajectory eval
+├── KnowledgeGraph_For_AI_agents/       # Business process and AP knowledge graphs
+├── LangGraph/                          # LangGraph stateful agent graphs
+├── Nvidia_Nemo_Agent_Toolkit/          # NVIDIA NeMo agent toolkit and UI
+├── Semantic_Caching/                   # Semantic cache for faster agent responses
+├── Voice_Agents/                       # Voice agents with Google ADK
 ├── agents_venv/                        # Python virtual environment
 ├── .env                                # API keys (not tracked)
 └── .gitignore
@@ -79,67 +82,88 @@ agents/
 
 ## 📈 Key Projects
 
-| Project | Location | What It Demonstrates |
-|--------|----------|----------------------|
-| **Agentic Sales Pipeline** | `CrewAI_02/Agentic_Sales_Pipeline.ipynb` | Flow-based lead fetch, scoring, filtering, routing, and follow-up actions with conditional branching. |
-| **Support Data Insight Analysis** | `CrewAI_02/Support_Data_Insight_Analysis.ipynb` | Reading CSV data, generating suggestions, building tables/charts, and assembling a final markdown report. |
-| **Content Creation at Scale** | `CrewAI_02/Content_Creation.ipynb` | Multi-agent financial news monitoring, data analysis, blog/social content creation, and QA with Pydantic outputs. |
-| **Automated Project Planning** | `CrewAI_02/Automated_Project.ipynb` | Crew-driven project planning, estimation, and allocation. |
-| **Deep Research Flow** | `CrewAI_01/deep_research_flow/` | A complete flow project with multiple crews, tools, guardrails, and structured outputs. |
-| **Automatic Deep Research** | `CrewAI_01/Automatic_Deep_Research/` | Standalone research crew with knowledge sources and reusable configuration. |
-| **Production Scaffolding** | `CrewAI_02/Production.ipynb` | Using `crewai create crew` / `crewai create flow` and CLI-based project structure. |
+| Project                           | Location                                                         | What It Demonstrates                                                                |
+| --------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **Smolagents Intro**              | `Code_Agents/intro.ipynb`                                        | Building code-acting agents with `smolagents`, custom tools, and secure execution.  |
+| **Secure Code Execution**         | `Code_Agents/secure_code.ipynb`                                  | Local Python executor restrictions, forbidden imports, and E2B sandbox execution.   |
+| **Monitoring & Evaluation**       | `Code_Agents/monitoring_evaluation.ipynb`                        | Phoenix/OpenTelemetry tracing for agent runs and tool-call evaluation.              |
+| **Deep Research Agent**           | `Code_Agents/deep_research.ipynb`                                | Multi-agent research with Tavily search, webpage visits, and Plotly map generation. |
+| **Agentic Sales Pipeline**        | `CrewAI/CrewAI_02/Agentic_Sales_Pipeline.ipynb`                  | Flow-based lead fetch, scoring, filtering, routing, and follow-up actions.          |
+| **Support Data Insight Analysis** | `CrewAI/CrewAI_02/Support_Data_Insight_Analysis.ipynb`           | Reading CSV data, generating suggestions, building tables/charts, and reports.      |
+| **LangGraph Essay Writer**        | `LangGraph/essay_writer.ipynb`                                   | State-graph agent for essay writing with persistence.                               |
+| **AutoGen Tool Use & Chess**      | `AutoGen/Tool_Use_and_Conversational_Chess.ipynb`                | Multi-agent tool use and conversational chess.                                      |
+| **SQL Agent with Reflection**     | `Agentic_AI/reflection_sql_generation.ipynb`                     | Reflection pattern for iterative SQL query improvement.                             |
+| **Email Management Agent**        | `Agentic_AI/Email_assistant/`                                    | ReAct-style email agent with FastAPI backend and tool calls.                        |
+| **Knowledge Graph Construction**  | `KnowledgeGraph_For_AI_agents/knowledge_graph_contruction.ipynb` | Building knowledge graphs from business data.                                       |
+| **NeMo Multi-Agent Math**         | `Nvidia_Nemo_Agent_Toolkit/multi_agent_math.ipynb`               | Multi-agent mathematical reasoning with NVIDIA NeMo.                                |
+| **Browser Web Agent**             | `Browser_Agents/web_agent.ipynb`                                 | Autonomous web browsing and scraping.                                               |
+| **Semantic Caching**              | `Semantic_Caching/semantic_cache.ipynb`                          | Speeding up agents with semantic response caching.                                  |
+| **Databricks Governance**         | `databricks-agent-governance/`                                   | Agent governance and deployment on Databricks.                                      |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.10–3.13
+
+- Python 3.11–3.13
 - Jupyter Notebook or JupyterLab
-- API keys for OpenAI and/or Groq, plus SerperDev if using web tools
+- API keys for OpenAI, Groq, Anthropic, Tavily, Hugging Face, etc. (as needed by each project)
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/holaholu/AI_Agents.git
 cd AI_Agents/agents
 ```
 
 2. Create and activate the virtual environment:
+
 ```bash
 python -m venv agents_venv
 source agents_venv/bin/activate  # On Windows: agents_venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. Install dependencies for the project you want to run:
+
 ```bash
-pip install -r CrewAI_02/requirements.txt
+# Example for CrewAI
+pip install -r CrewAI/CrewAI_02/requirements.txt
+# Example for Code_Agents
+pip install -r Code_Agents/requirements.txt
 ```
 
 4. Configure environment variables:
+
 ```bash
 cp .env.example .env
-# Edit .env to add your OPENAI_API_KEY, SERPER_API_KEY, etc.
+# Edit .env to add your API keys
 ```
 
 5. Launch JupyterLab:
+
 ```bash
 jupyter lab
 ```
 
 ## 📚 Learning Path
 
-1. **Foundations** — Start with `CrewAI_01/config/agents.yaml` and `tasks.yaml` to understand role/task definitions.
-2. **Single Crews** — Run `CrewAI_01/content_creation.ipynb` and `deep_research.ipynb` to see basic crew execution.
-3. **Flows** — Explore `CrewAI_02/Agentic_Sales_Pipeline.ipynb` and the generated `crewai_flow*.html` diagrams for event-driven orchestration.
-4. **Data & Reporting** — Work through `CrewAI_02/Support_Data_Insight_Analysis.ipynb` for data-driven agent outputs.
-5. **Production** — Review `CrewAI_02/Production.ipynb` and the CLI-generated project structure for deployment readiness.
+1. **Foundations** — Start with `CrewAI/CrewAI_01/` notebooks and `Code_Agents/intro.ipynb` to understand crew and code-agent basics.
+2. **Single Crews / Agents** — Run `CrewAI/CrewAI_01/content_creation.ipynb` and `Code_Agents/monitoring_evaluation.ipynb` for basic execution and tracing.
+3. **Flows & Graphs** — Explore `CrewAI/CrewAI_02/Agentic_Sales_Pipeline.ipynb` and `LangGraph/essay_writer.ipynb` for stateful orchestration.
+4. **Data & Research** — Work through `Code_Agents/deep_research.ipynb`, `Building&Evaluating_DataAgents/`, and `Agentic_AI/reflection_sql_generation.ipynb`.
+5. **Knowledge & Memory** — Review `KnowledgeGraph_For_AI_agents/` and `Agentic_KnowledgeGraph/` for graph-based agent memory.
+6. **Evaluation & Governance** — Study `Evaluate_Agents/` and `databricks-agent-governance/` for production readiness.
+7. **Specialized Agents** — Dive into `Voice_Agents/`, `Browser_Agents/`, `Document_AI/`, and `Nvidia_Nemo_Agent_Toolkit/`.
 
 ## 🤝 Contributing
 
 This repository is a personal learning portfolio. Suggestions, corrections, and improvements are welcome through issues or pull requests, especially around:
-- Updating notebooks to the latest CrewAI API
-- Adding regression tests for flow outputs
+
+- Updating notebooks to the latest library APIs
+- Adding regression tests for agent outputs
 - Improving documentation and visual diagrams
+- Expanding evaluation and governance coverage
 
 ## 📄 License
 
@@ -147,4 +171,4 @@ This project is provided for educational and portfolio purposes. Please refer to
 
 ---
 
-This repository demonstrates practical agent engineering with CrewAI — from prototyping in notebooks to structuring crews and flows for production.
+This repository demonstrates practical agent engineering across frameworks — from prototyping in notebooks to structuring crews, graphs, and production-ready agent systems.
